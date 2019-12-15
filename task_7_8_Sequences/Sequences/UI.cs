@@ -3,7 +3,7 @@ using Serilog;
 
 namespace Sequences
 {
-    class UI
+    public class UI
     {
         public UserMode GetUserMode()
         {
@@ -28,7 +28,6 @@ namespace Sequences
             }
         }
 
-
         public string GetUserParametersFibbonachi()
         {
             Console.WriteLine(TextMessages.INPUT_PARAMETERS_FOR_FIBBONACHI);
@@ -41,11 +40,6 @@ namespace Sequences
             Console.WriteLine(TextMessages.INPUT_PARAMETERS_FOR_SEQUENCE_OF_SQUARES);
 
             return Console.ReadLine();
-        }
-
-        private void ShowHelp()
-        {
-            Console.WriteLine(TextMessages.HELP);
         }
 
         public bool RunAgain()
@@ -78,6 +72,19 @@ namespace Sequences
             return result;
         }
 
+        public void ShowSequence(Sequence sequence)
+        {
+            foreach (int number in sequence)
+            {
+                Console.Write(number + ", ");
+            }
 
+            Console.WriteLine("\n" + new string('-', 50));
+        }
+
+        private void ShowHelp()
+        {
+            Console.WriteLine(TextMessages.HELP);
+        }
     }
 }

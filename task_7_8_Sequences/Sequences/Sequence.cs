@@ -2,7 +2,7 @@
 
 namespace Sequences
 {
-    abstract class Sequence
+    public abstract class Sequence //: IEnumerable<int>
     {
         public IEnumerator<int> GetEnumerator()
         {

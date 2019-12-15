@@ -3,7 +3,7 @@ using Serilog;
 
 namespace Sequences
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

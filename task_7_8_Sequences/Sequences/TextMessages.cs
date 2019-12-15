@@ -1,6 +1,6 @@
 ﻿namespace Sequences
 {
-    static class TextMessages
+    public static class TextMessages
     {
         public const string SEQUENCE_OF_SQUARES_SELECT = "1";
         public const string FIBBONACHI_SELECT = "2";

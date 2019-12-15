@@ -2,7 +2,7 @@
 
 namespace Sequences
 {
-    class FibbonachiSequence : Sequence
+    public class FibbonachiSequence : Sequence
     {
         public int LeftBorder {get; private set;}
         public int RightBorder {get; private set;}
