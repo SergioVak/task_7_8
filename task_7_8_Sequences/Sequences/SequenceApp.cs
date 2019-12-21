@@ -15,8 +15,6 @@ namespace Sequences
 
         public void Start()
         {
-            bool isActive = true;
-
             do
             {
                 try
@@ -25,15 +23,18 @@ namespace Sequences
                     _sequence = GetSequence(userMode);
                     _userInterface.ShowSequence(_sequence);
                 }
-                catch (FormatException ex)
+                catch (ArgumentException ex)
                 {
                     Console.WriteLine(TextMessages.WRONG_PARAMETERS);
                     Log.Logger.Error($"{ex.Message} SequenceApp.Start");
                 }
-
-                isActive = _userInterface.RunAgain();
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(TextMessages.WRONG_FORMAT);
+                    Log.Logger.Error($"{ex.Message} SequenceApp.Start");
+                }
             }
-            while (isActive);
+            while (_userInterface.IsRunAgain());
         }
 
         private Sequence GetSequence(UserMode userMode)
@@ -42,15 +43,19 @@ namespace Sequences
             {
                 case UserMode.SequenceOfSquares:
 
-                    string parameter = _userInterface.GetUserParametersSequenceOfSquares();
+                    string parameter = _userInterface.
+                        GetUserParametersForSequence(TextMessages.INPUT_PARAMETERS_FOR_SEQUENCE_OF_SQUARES);
+
                     _sequence = new NumericalSequenceOfSquares(Convert.ToDouble(parameter));
 
                     break;
 
                 case UserMode.Fibbonachi:
 
-                    string [] split = _userInterface.GetUserParametersFibbonachi().Split(' ');
-                    _sequence = new FibbonachiSequence(Convert.ToInt32(split[0]), Convert.ToInt32(split[1]));
+                    string [] split = _userInterface.GetUserParametersForSequence
+                        (TextMessages.INPUT_PARAMETERS_FOR_SEQUENCE_OF_SQUARES).Split(' ');
+
+                    _sequence= new FibbonachiSequence(Convert.ToInt32(split[0]), Convert.ToInt32(split[1]));
 
                     break;
 

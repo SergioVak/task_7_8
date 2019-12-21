@@ -7,8 +7,6 @@ namespace Sequences
     {
         public UserMode GetUserMode()
         {
-            ShowHelp();
-
             string userInput = Console.ReadLine().ToLower();
 
             switch (userInput)
@@ -28,61 +26,77 @@ namespace Sequences
             }
         }
 
-        public string GetUserParametersFibbonachi()
+        public string GetUserParametersForSequence(string information)
         {
-            Console.WriteLine(TextMessages.INPUT_PARAMETERS_FOR_FIBBONACHI);
+            Console.WriteLine(information);
 
             return Console.ReadLine();
         }
 
-        public string GetUserParametersSequenceOfSquares()
+        public bool IsRunAgain()
         {
-            Console.WriteLine(TextMessages.INPUT_PARAMETERS_FOR_SEQUENCE_OF_SQUARES);
+            bool reAsk = false;
+            bool result = false;
 
-            return Console.ReadLine();
-        }
-
-        public bool RunAgain()
-        {
-            string input;
-            bool result;
-
-            Console.WriteLine(TextMessages.RUN_AGAIN);
-            input = Console.ReadLine();
-
-            switch (input.ToLower())
+            do
             {
-                case TextMessages.YES:
-                case TextMessages.Y:
-                    result = true;
-                    break;
+                string input = string.Empty;
 
-                case TextMessages.NO:
-                case TextMessages.N:
-                    result = false;
-                    break;
+                Console.WriteLine(TextMessages.RUN_AGAIN);
+                input = Console.ReadLine();
 
-                default:
-                    Log.Logger.Information($"UI default. User input {input}");
-                    Console.WriteLine(TextMessages.RUN_AGAIN);
+                switch (input.ToLower())
+                {
+                    case TextMessages.YES:
+                    case TextMessages.Y:
+                        result = true;
+                        reAsk = false;
 
-                    return RunAgain();
+                        break;
+
+                    case TextMessages.NO:
+                    case TextMessages.N:
+                        result = false;
+                        reAsk = false;
+
+                        break;
+
+                    default:
+                        Log.Logger.Information($"UI default. RunAgain {input}");
+                        Console.WriteLine(TextMessages.WRONG_INPUT);
+                        Console.WriteLine();
+
+                        reAsk = true;
+
+                        break;
+                }
             }
+            while (reAsk);
 
             return result;
         }
 
         public void ShowSequence(Sequence sequence)
         {
+            int counter = 0;
+
+            Console.Write(TextMessages.SEQUENCE + " : ");
+
             foreach (int number in sequence)
             {
-                Console.Write(number + ", ");
+                Console.Write(number + " ");
+                counter++;
+            }
+
+            if (counter == 0)
+            {
+                Console.Write(TextMessages.EMPTY_RESULT);
             }
 
             Console.WriteLine("\n" + new string('-', 50));
         }
 
-        private void ShowHelp()
+        public void ShowHelp()
         {
             Console.WriteLine(TextMessages.HELP);
         }

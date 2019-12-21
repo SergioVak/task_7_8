@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Sequences
 {
-    public abstract class Sequence //: IEnumerable<int>
+    public abstract class Sequence : IEnumerable<int>
     {
         public IEnumerator<int> GetEnumerator()
         {
@@ -14,5 +15,10 @@ namespace Sequences
         }
 
         protected abstract IEnumerator<int> GetElement();
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -15,6 +15,10 @@
         public const string HELP = "Input 1 and Enter for SequenceOfSquares\nInput 2 and Enter for Fibbonachi";
         public const string RUN_AGAIN = "If you wonna to run again press yes/y.Else no/n";
         public const string WRONG_PARAMETERS = "Wrong parameters!";
+        public const string WRONG_FORMAT = "Wrong format!";
+        public const string WRONG_INPUT = "Wrong input";
+        public const string EMPTY_RESULT = "Result is empty";
+        public const string SEQUENCE = "Sequence";
 
 
     }

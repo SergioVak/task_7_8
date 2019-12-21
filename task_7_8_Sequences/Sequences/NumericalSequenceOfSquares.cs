@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Sequences
 {
@@ -8,6 +9,11 @@ namespace Sequences
 
         public NumericalSequenceOfSquares(double border)
         {
+            if (border < 1)
+            {
+                throw new ArgumentException("Border should be no less than 1 ");
+            }
+
             Border = border;
         }
 

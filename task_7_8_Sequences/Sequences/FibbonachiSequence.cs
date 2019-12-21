@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Sequences
 {
@@ -9,6 +10,11 @@ namespace Sequences
 
         public FibbonachiSequence(int leftBorder, int rightBorder)
         {
+            if (leftBorder < 1 || rightBorder < 1)
+            {
+                throw new ArgumentException();
+            }
+
             if (leftBorder > rightBorder)
             {
                 RightBorder = leftBorder;
