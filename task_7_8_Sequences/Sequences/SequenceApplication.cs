@@ -3,20 +3,22 @@ using Serilog;
 
 namespace Sequences
 {
-    public class SequenceApp
+    public class SequenceApplication
     {
         private Sequence _sequence;
-        private UI _userInterface;
+        private readonly SequenceUI _userInterface;
 
-        public SequenceApp()
+        public SequenceApplication()
         {
-            _userInterface = new UI();
+            _userInterface = new SequenceUI();
         }
 
         public void Start()
         {
             do
             {
+                _userInterface.ShowHelp();
+
                 try
                 {
                     UserMode userMode = _userInterface.GetUserMode();

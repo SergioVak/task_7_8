@@ -7,7 +7,7 @@ namespace Sequences
     {
         static void Main(string[] args)
         {
-            SequenceApp _app = new SequenceApp();
+            SequenceApplication _app = new SequenceApplication();
 
             Log.Logger = new LoggerConfiguration().MinimumLevel.Debug()
                .WriteTo.File("log.txt").CreateLogger();

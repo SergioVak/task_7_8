@@ -3,7 +3,7 @@ using Serilog;
 
 namespace Sequences
 {
-    public class UI
+    public class SequenceUI
     {
         public UserMode GetUserMode()
         {
