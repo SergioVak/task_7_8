@@ -5,7 +5,7 @@ namespace Sequences
 {
     public abstract class Sequence : IEnumerable<int>
     {
-        public IEnumerator<int> GetEnumerator()
+        IEnumerator<int> IEnumerable<int>.GetEnumerator()
         {
             IEnumerator<int> enumerator = this.GetElement();
             while (enumerator.MoveNext())
@@ -16,7 +16,7 @@ namespace Sequences
 
         protected abstract IEnumerator<int> GetElement();
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             throw new System.NotImplementedException();
         }
