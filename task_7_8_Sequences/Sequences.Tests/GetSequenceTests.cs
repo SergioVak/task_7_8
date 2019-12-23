@@ -1,5 +1,4 @@
 ﻿using Xunit;
-using System;
 
 namespace Sequences.Tests
 {
