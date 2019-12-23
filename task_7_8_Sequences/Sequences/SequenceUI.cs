@@ -96,6 +96,18 @@ namespace Sequences
             Console.WriteLine("\n" + new string('-', 50));
         }
 
+        public string ConvertSequenceToString(Sequence sequence)
+        {
+            string str = string.Empty;
+
+            foreach (int number in sequence)
+            {
+                str += number.ToString() + " ";
+            }
+
+            return str;
+        }
+
         public void ShowHelp()
         {
             Console.WriteLine(TextMessages.HELP);

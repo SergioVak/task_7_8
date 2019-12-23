@@ -55,7 +55,7 @@ namespace Sequences
                 case UserMode.Fibbonachi:
 
                     string [] split = _userInterface.GetUserParametersForSequence
-                        (TextMessages.INPUT_PARAMETERS_FOR_SEQUENCE_OF_SQUARES).Split(' ');
+                        (TextMessages.INPUT_PARAMETERS_FOR_FIBBONACHI).Split(' ');
 
                     _sequence= new FibbonachiSequence(Convert.ToInt32(split[0]), Convert.ToInt32(split[1]));
 
