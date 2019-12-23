@@ -10,7 +10,7 @@ namespace Sequences.Tests
         [InlineData(20, "1 2 3 4 ")]
         [InlineData(100, "1 2 3 4 5 6 7 8 9 ")]
         [InlineData(100, "1 2 3 4 5 6 7 8 9 10 ")]
-        public void NotEmptySequnceTest(int border, string expected)
+        public void ReturnSequnceTest(int border, string expected)
         {
             string actual = string.Empty;
 
