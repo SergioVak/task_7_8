@@ -84,9 +84,11 @@ namespace Sequences
 
             foreach (int number in sequence)
             {
-                Console.Write(number + " ");
+                Console.Write(number + ", ");
                 counter++;
             }
+
+            Console.Write(".");
 
             if (counter == 0)
             {

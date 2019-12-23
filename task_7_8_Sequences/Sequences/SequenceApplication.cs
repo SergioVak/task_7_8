@@ -1,5 +1,5 @@
-﻿using System;
-using Serilog;
+﻿using Serilog;
+using System;
 
 namespace Sequences
 {
@@ -13,7 +13,7 @@ namespace Sequences
             _userInterface = new SequenceUI();
         }
 
-        public void Start()
+        public void Start(string[] args)
         {
             do
             {
