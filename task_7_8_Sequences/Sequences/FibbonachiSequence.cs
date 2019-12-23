@@ -12,7 +12,7 @@ namespace Sequences
         {
             if (leftBorder < 1 || rightBorder < 1)
             {
-                throw new ArgumentException("Left and right borders should be >= 1 ");
+                throw new ArgumentException("Left and right borders should be no less 1 ");
             }
 
             if (leftBorder > rightBorder)

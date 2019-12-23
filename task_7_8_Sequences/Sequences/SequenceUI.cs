@@ -21,7 +21,7 @@ namespace Sequences
 
                 default:
                     Log.Logger.Information($"UI.Default({userInput})");
-
+                    Console.WriteLine(TextMessages.WRONG_INPUT);
                     return GetUserMode();
             }
         }
@@ -84,11 +84,9 @@ namespace Sequences
 
             foreach (int number in sequence)
             {
-                Console.Write(number + ", ");
+                Console.Write(number + " ");
                 counter++;
             }
-
-            Console.Write(".");
 
             if (counter == 0)
             {

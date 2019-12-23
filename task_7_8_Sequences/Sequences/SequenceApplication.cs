@@ -5,6 +5,9 @@ namespace Sequences
 {
     public class SequenceApplication
     {
+        private const int SEQUENCE_OF_SQUARES = 1;
+        private const int FIBBONACHI = 2;
+
         private Sequence _sequence;
         private readonly SequenceUI _userInterface;
 
@@ -17,11 +20,38 @@ namespace Sequences
         {
             do
             {
-                _userInterface.ShowHelp();
-
                 try
                 {
-                    UserMode userMode = _userInterface.GetUserMode();
+                    UserMode userMode;
+
+                    if (args.Length != 0)
+                    {
+                        if (args.Length != 1)
+                        {
+                            throw new ArgumentException();
+                        }
+                        else
+                        {
+                            if(Convert.ToInt32(args[0]) == SEQUENCE_OF_SQUARES)
+                            {
+                                userMode = UserMode.SequenceOfSquares;
+                            }
+                            else if(Convert.ToInt32(args[0]) == FIBBONACHI)
+                            {
+                                userMode = UserMode.Fibbonachi;
+                            }
+                            else
+                            {
+                                throw new ArgumentException();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _userInterface.ShowHelp();
+                        userMode = _userInterface.GetUserMode();
+                    }
+
                     _sequence = GetSequence(userMode);
                     _userInterface.ShowSequence(_sequence);
                 }
@@ -35,6 +65,8 @@ namespace Sequences
                     Console.WriteLine(TextMessages.WRONG_FORMAT);
                     Log.Logger.Error($"{ex.Message} SequenceApp.Start");
                 }
+
+                Array.Clear(args, 0, args.Length);
             }
             while (_userInterface.IsRunAgain());
         }
@@ -68,6 +100,6 @@ namespace Sequences
             }
 
             return _sequence;
-        }      
+        }
     }
 }
