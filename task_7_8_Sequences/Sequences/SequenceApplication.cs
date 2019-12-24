@@ -7,6 +7,7 @@ namespace Sequences
     {
         private const int SEQUENCE_OF_SQUARES = 1;
         private const int FIBBONACHI = 2;
+        private const int COUNT_PARAMETERS = 1;
 
         private Sequence _sequence;
         private readonly SequenceUI _userInterface;
@@ -26,7 +27,7 @@ namespace Sequences
 
                     if (args.Length != 0)
                     {
-                        if (args.Length != 1)
+                        if (args.Length != COUNT_PARAMETERS)
                         {
                             throw new ArgumentException();
                         }
@@ -42,7 +43,7 @@ namespace Sequences
                             }
                             else
                             {
-                                throw new ArgumentException();
+                                throw new ArgumentException(TextMessages.WRONG_PARAMETERS);
                             }
                         }
                     }
